@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda Marlen & Mario - Recomendaciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Paleta Clara (Inspirada en la imagen) */
+            --bg-color: #fdfcf0;
+            --text-main: #5a5a42;
+            --accent-gold: #c5a059;
+            --sage-green: #8f9779;
+            --card-bg: rgba(255, 255, 255, 0.6);
+            --border-color: #d4d4b8;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a15;
+            --text-main: #e0e0d0;
+            --accent-gold: #e5c385;
+            --sage-green: #a8b28f;
+            --card-bg: rgba(40, 40, 30, 0.8);
+            --border-color: #3d3d2e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            transition: var(--transition);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, .script-font {
+            font-family: 'Alex Brush', cursive;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Decoración SVG --- */
+        .flower-corner {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            z-index: -1;
+            opacity: 0.6;
+            fill: var(--sage-green);
+        }
+        .top-left { top: 0; left: 0; }
+        .bottom-right { bottom: 0; right: 0; transform: rotate(180deg); }
+
+        /* --- Contenedor Principal --- */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 50px;
+            border: 1px solid var(--accent-gold);
+            padding: 40px 20px;
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .names { font-size: 3.5rem; color: var(--text-main); margin-bottom: 10px; }
+        .date { font-size: 1.2rem; letter-spacing: 3px; text-transform: uppercase; }
+
+        /* --- Tarjetas de Recomendación --- */
+        .recommendation-grid {
+            display: grid;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        /* --- Botón Dark Mode --- */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--sage-green);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- Animaciones --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @media (max-width: 480px) {
+            .names { font-size: 2.5rem; }
+            .flower-corner { width: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <svg class="flower-corner top-left" viewBox="0 0 100 100">
+        <path d="M0,0 Q50,0 50,50 T100,100 M20,0 Q40,20 20,40 T0,60" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        <circle cx="10" cy="10" r="2" />
+        <circle cx="30" cy="5" r="1.5" />
+    </svg>
+
+    <button class="theme-toggle" onclick="toggleTheme()">Modo Dark</button>
+
+    <main class="container">
+        <header>
+            <h1 class="names">Marlen & Mario</h1>
+            <p class="date serif">Recomendaciones para nuestra boda</p>
+            <p style="margin-top: 15px; font-style: italic;"></p>
+        </header>
+
+        <section class="recommendation-grid">
+            <div class="card">
+                <h3>Código de Vestimenta</h3>
+                <p>Dada la ocasión les pedimos respetar un código de vestimenta formal y evitando lo mas posible los colores como ROJO y BLANCO. Como muestra de cortesía ante la celebración y el atuendo de los novios.</p>
+            </div>
+
+            <div class="card">
+                <h3>Seguridad</h3>
+                <p>Apreciamos mucho a los pequeños de la familia. Planeamos un entorno apto para todas las edades, pero al mismo tiempo queremos pedirles precaución y extremar cuidados en los eventos principales para evitar incidentes o interrupciones.</p>
+            </div>
+
+            <div class="card">
+                <h3>Fotografías</h3>
+                <p>Al igual que ustedes queremos guardar cada momento, por eso mismo hemos contratado a un profesional encargado de ello. Y estaremos encantados de compartir con todos ustedes cada una de esas imágenes por lo que sugerimos discreción al momento de fotografiar. De igual forma nos gustaría que pudieras compartir con nosotros todos los hermosos momentos que captures en un álbum que formaremos y compartimos ese día.</p>
+            </div>
+
+            <div class="card">
+                <h3>Asistencia</h3>
+                <p>Cada invitado es especial para nosotros y queremos tener preparado todo lo necesario para atender a cada uno de ustedes. Por eso pedimos su ayuda confirmando su asistencia y si alguien les acompaña (sin exceder el número máximo sugerido) contestando la encuesta del siguiente enlace.</p>
+            </div>
+        </section>
+    </main>
+
+    <svg class="flower-corner bottom-right" viewBox="0 0 100 100">
+        <path d="M0,0 Q50,0 50,50 T100,100" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        <circle cx="15" cy="15" r="3" />
+    </svg>
+
+    <script>
+        // --- Lógica de Modo Oscuro ---
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            document.querySelector('.theme-toggle').textContent = 
+                newTheme === 'dark' ? 'Modo Light' : 'Modo Dark';
+            
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Cargar preferencia guardada
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            document.querySelector('.theme-toggle').textContent = 'Modo Light';
+        }
+
+        // --- Animación de Entrada (Scroll Reveal) ---
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
